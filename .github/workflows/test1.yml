@@ -3,14 +3,24 @@ on:
   push:
 
 jobs:
-  say-Hello:
+  test-1:
     runs-on: ubuntu-latest
     steps:
-      - name: show file tree before checkout
-        run: ls -la
-
       - name: checkout code
         uses: actions/checkout@v4
 
-      - name: show file tree after checkout
-        run: ls -la
+      - name: setup go
+        uses: actions/setup-go@v4
+        with:
+          go-version-file: 'go.mod'
+
+      - name: go mod download
+        run: go mod download
+
+      - name: print env info
+        run: |
+          go env
+          go version
+
+      - name: run test
+        run: go test -v ./...
