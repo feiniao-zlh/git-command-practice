@@ -6,5 +6,11 @@ jobs:
   say-Hello:
     runs-on: ubuntu-latest
     steps:
-      - name: print hello
-        run: echo "Hello from test1.yml"
+      - name: show file tree before checkout
+        run: ls -la
+
+      - name: checkout code
+        uses: actions/checkout@v4
+
+      - name: show file tree after checkout
+        run: ls -la

@@ -1,1 +1,7 @@
-package git_command_practice
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Println("Hello World")
+}
