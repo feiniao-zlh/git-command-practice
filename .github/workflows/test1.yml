@@ -3,7 +3,7 @@ on:
   push:
 
 jobs:
-  test-1:
+  golang-test:
     runs-on: ubuntu-latest
     steps:
       - name: checkout code
@@ -24,3 +24,9 @@ jobs:
 
       - name: run test
         run: go test -v ./...
+
+  test-demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print file tree
+        run: ls -Fa
